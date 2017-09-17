@@ -11,4 +11,4 @@ This application can be installed via npm by running `npm install`. Once install
 
 Once initialized the application can be accesed via port `8080` on `localhost`. The application is driven primarily by react-router, allowing you to access routes to get directly to the content you want. For example `http://localhost:8080/r/teslamotors/hot` or `http://localhost:8080/r/wow/new`.
 
-![Example](assets/app_example.gif)
+![Example](assets/application_example.gif)
