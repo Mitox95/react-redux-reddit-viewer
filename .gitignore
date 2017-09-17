@@ -1,0 +1,9 @@
+/node_modules
+bundle.js
+npm-debug.log
+.DS_Store
+/style/.sass-cache
+/style/style.css.map
+# IntelliJ
+*.iml
+/.idea
