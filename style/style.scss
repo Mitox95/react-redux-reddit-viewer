@@ -1,0 +1,98 @@
+html, body {
+  background-color: #fafafa;
+  color: #fff;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  transition: all .6s ease 0s;
+  
+  &:hover {
+    opacity: .6;
+    color: #b1afaf;
+    cursor: pointer;
+  }
+}
+
+.card {
+  &.horizontal {
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+  }
+
+  .card-image a {
+    cursor: pointer;
+  }
+  
+  .card-meta {
+    color: #000;
+    font-weight: 300;
+  }
+
+  .card-author {
+    color: #ef8361;
+  }
+
+  .card-title-text {
+    color: #000;
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  .card-action {
+    display: flex;
+  }
+
+  .card-expand {
+    width: 100%;
+    height: auto;
+  }
+  
+  .chip-list {
+    padding: 10px 0;
+  }
+
+}
+
+.pagination {
+  display: flex;
+  color: #000;
+
+  .previous {
+    align-content: flex-start;
+  }
+
+  .next {
+    align-content: flex-end;
+  }
+
+  .middle {
+    margin: 0 auto;
+  }
+}
+
+.progress-container h4 {
+  color: #9ea1a8;
+  font-weight: 800;
+}
+
+.img-responsive {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.iframe-responsive iframe {
+  max-width: 100%;
+}
+
+.input-field {
+  color: #9e9e9e;
+}
