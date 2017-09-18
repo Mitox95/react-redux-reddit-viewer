@@ -39,8 +39,8 @@ class Pagination extends Component {
 
     // Resets the page number when the user changes route.
     componentWillReceiveProps(nextProps) {
-        if (nextProps.params.sub != this.props.params.sub ||
-            nextProps.params.filter != this.props.params.filter) {
+        if (nextProps.params.sub !== this.props.params.sub ||
+            nextProps.params.filter !== this.props.params.filter) {
             this.setState({ currentPage: 1 })
         }
     }

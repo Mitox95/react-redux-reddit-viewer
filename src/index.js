@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { Router, hashHistory } from 'react-router';
 import thunk from 'redux-thunk';
-import promise from 'redux-promise';
 
 import routes from './routes';
 import reducers from './reducers';
@@ -17,4 +16,4 @@ ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <Router history={hashHistory} routes={routes} />
   </Provider>
-  , document.querySelector('.wrapper'));
+  , document.querySelector('#root'));

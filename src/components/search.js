@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 /* The Search component lets you type in and submit
     a subreddit name to adjust the viewers content. */
@@ -11,10 +12,6 @@ class Search extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
-    
-    static contextTypes = {
-        router: PropTypes.object
-    };
 
     handleChange(event) {
         this.setState({ term: event.target.value })
@@ -58,5 +55,9 @@ class Search extends Component {
         )
     }
 }
+
+Search.contextTypes = {
+    router: PropTypes.object
+};
 
 export default Search;

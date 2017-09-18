@@ -21,6 +21,12 @@ a {
 }
 
 .card {
+  &.horizontal {
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+  }
+
   .card-image a {
     cursor: pointer;
   }
@@ -39,14 +45,20 @@ a {
     font-size: 16px;
     font-weight: 400;
   }
+
+  .card-action {
+    display: flex;
+  }
+
+  .card-expand {
+    width: 100%;
+    height: auto;
+  }
   
   .chip-list {
     padding: 10px 0;
   }
 
-  .card-action {
-    display: flex;
-  }
 }
 
 .pagination {

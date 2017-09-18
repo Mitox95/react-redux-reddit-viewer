@@ -16,15 +16,15 @@ class Filter extends Component {
     componentWillMount() {
         // Sets the initial index based on what filter route the user has come in on.
         // Defaults to '0' which is 'hot', the default API call.
-        if (this.props.params.filter == 'hot') {
+        if (this.props.params.filter === 'hot') {
             this.setState({ currentTab: 0 })
         }
 
-        else if (this.props.params.filter == 'new') {
+        else if (this.props.params.filter === 'new') {
             this.setState({ currentTab: 1 })
         }
 
-        else if (this.props.params.filter == 'top') {
+        else if (this.props.params.filter === 'top') {
             this.setState({ currentTab: 2 })
         }
     }
@@ -36,7 +36,7 @@ class Filter extends Component {
     render() {
         return (
             <div> 
-                {this.state.currentTab == 2 &&
+                {this.state.currentTab === 2 &&
                     <AdvancedFilter {...this.props} />   
                 }
 
@@ -61,6 +61,5 @@ class Filter extends Component {
         )
     }
 }
-
 
 export default Filter;

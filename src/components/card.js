@@ -35,10 +35,10 @@ class Card extends Component {
     renderExpandContent() {
         const { thread } = this.props;
 
-        if (thread.data.post_hint == 'image') {
-            return <img src={thread.data.url} className="img-responsive" />;
+        if (thread.data.post_hint === 'image') {
+            return <img src={thread.data.url} className="img-responsive" alt={thread.data.title} />;
             
-        } else if (thread.data.post_hint == 'rich:video') {
+        } else if (thread.data.post_hint === 'rich:video') {
             return <div className="iframe-responsive" 
                 dangerouslySetInnerHTML={ {__html: this.htmlDecode(thread.data.secure_media_embed.content) } } />;
         }
@@ -62,13 +62,13 @@ class Card extends Component {
         // Certain thumbnail paths from the Reddit API's indicate a content type and not
         // an image. For these we re-assign their values to some placeholders so they
         // can be rendered in an image tag.
-        if (thread.data.thumbnail == 'self') {
+        if (thread.data.thumbnail === 'self') {
             thread.data.thumbnail = './assets/placeholder_self.png'
-        } else if (thread.data.thumbnail == 'nsfw') {
+        } else if (thread.data.thumbnail === 'nsfw') {
             thread.data.thumbnail = './assets/placeholder_nsfw.png'
-        } else if (thread.data.thumbnail == 'spoiler') {
+        } else if (thread.data.thumbnail === 'spoiler') {
             thread.data.thumbnail = './assets/placeholder_spoiler.png'
-        } else if (thread.data.thumbnail == '' || thread.data.thumbnail == 'default') {
+        } else if (thread.data.thumbnail === '' || thread.data.thumbnail === 'default') {
             thread.data.thumbnail = './assets/placeholder.png'
         }
 
@@ -76,7 +76,7 @@ class Card extends Component {
             <div key={thread.data.id} className="col s12">
                 <div className="card hoverable horizontal">
                     <div className="card-image">
-                        <img src={thread.data.thumbnail} />
+                        <img src={thread.data.thumbnail} alt={thread.data.title} />
                     </div>
 
                     <div className="card-stacked">
@@ -90,8 +90,7 @@ class Card extends Component {
                                     href={`https://www.reddit.com/user/${thread.data.author}`} 
                                     target="_blank">
                                     {thread.data.author}
-                                </a> 
-                                <Timestamp time={thread.data.created_utc} />
+                                </a> <Timestamp time={thread.data.created_utc} />
                             </div>
 
                             <div className="chip-list">
@@ -106,23 +105,17 @@ class Card extends Component {
                                     </div>
                                 }
                             </div>
-
-                            {this.state.expanded &&
-                                <div>
-                                    {this.renderExpandContent()}
-                                </div>
-                            }
                         </div>
 
                         <div className="card-action">
                             <div className="action-list">
-                                {thread.data.post_hint == 'rich:video' &&
+                                {thread.data.post_hint === 'rich:video' &&
                                     <span>
                                         {this.renderExpandControls()}
                                     </span>
                                 }
 
-                                {thread.data.post_hint == 'image' &&
+                                {thread.data.post_hint === 'image' &&
                                     <span>
                                         {this.renderExpandControls()}
                                     </span>
@@ -133,11 +126,17 @@ class Card extends Component {
                                 </a>
 
                                 <a className="waves-effect waves-light" href={`https://reddit.com${thread.data.permalink}`} target="_blank">
-                                    <i className="material-icons right">comment</i>Read Comments
+                                    <i className="material-icons right">comment</i>Comments
                                 </a>
                             </div>
                         </div>
                     </div>
+
+                    {this.state.expanded &&
+                        <div className="card-expand">
+                            {this.renderExpandContent()}
+                        </div>
+                    }
                 </div>
             </div>
         );
