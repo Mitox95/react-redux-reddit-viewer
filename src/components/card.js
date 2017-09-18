@@ -57,6 +57,7 @@ class Card extends Component {
     };
 
     render() {
+        console.log(this.props);
         const { thread } = this.props;
 
         // Certain thumbnail paths from the Reddit API's indicate a content type and not
@@ -82,7 +83,9 @@ class Card extends Component {
                     <div className="card-stacked">
                         <div className="card-content">
                             <span className="card-title-text">
-                                {thread.data.title}
+                                <a href={`http://reddit.com${thread.data.permalink}`}>
+                                    {thread.data.title}
+                                </a>
                             </span>
 
                             <div className="card-meta">
@@ -109,25 +112,17 @@ class Card extends Component {
 
                         <div className="card-action">
                             <div className="action-list">
-                                {thread.data.post_hint === 'rich:video' &&
+                                {thread.data.post_hint === ('image' || 'rich:video') &&
                                     <span>
                                         {this.renderExpandControls()}
                                     </span>
                                 }
 
-                                {thread.data.post_hint === 'image' &&
-                                    <span>
-                                        {this.renderExpandControls()}
-                                    </span>
+                                {thread.data.post_hint !== ('image' || 'rich:video') &&
+                                    <a className="waves-effect waves-light" href={thread.data.url} target="_blank">
+                                        <i className="material-icons right">visibility</i>View
+                                    </a>
                                 }
-
-                                <a className="waves-effect waves-light" href={thread.data.url} target="_blank">
-                                    <i className="material-icons right">visibility</i>View
-                                </a>
-
-                                <a className="waves-effect waves-light" href={`https://reddit.com${thread.data.permalink}`} target="_blank">
-                                    <i className="material-icons right">comment</i>Comments
-                                </a>
                             </div>
                         </div>
                     </div>
