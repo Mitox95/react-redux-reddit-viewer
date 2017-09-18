@@ -13,22 +13,32 @@ class Card extends Component {
 
     // Certain threads contain rich media content that can be inlined
     // on the page. If the thread contains one of these this helper
-    // function returns the controls to expand it.
+    // function returns the controls to expand it. Otherwise it
+    // renders a view button to view the threads permalink.
     renderExpandControls() {
-        if (this.state.expanded) {
-            return (
-                <a className="waves-effect waves-light" onClick={this.handleExpand}>
-                    <i className="material-icons right">expand_less</i>Compress
-                </a>
-            )
+        const { thread } = this.props;
+        if (thread.data.post_hint === 'image' || thread.data.post_hint == 'rich:video') {
+            if (this.state.expanded) {
+                return (
+                    <a className="waves-effect waves-light" onClick={this.handleExpand}>
+                        <i className="material-icons right">expand_less</i>Compress
+                    </a>
+                )
+            } else {
+                return (
+                    <a className="waves-effect waves-light" onClick={this.handleExpand}>
+                        <i className="material-icons right">expand_more</i>Expand
+                    </a>    
+                )      
+            }
         } else {
             return (
-                <a className="waves-effect waves-light" onClick={this.handleExpand}>
-                    <i className="material-icons right">expand_more</i>Expand
-                </a>    
-            )      
+                <a className="waves-effect waves-light" href={thread.data.url} target="_blank">
+                    <i className="material-icons right">visibility</i>View
+                </a>
+            )
         }
-    };
+    }
 
     // Handles each expandable content type differently. If it's an image 
     // it returns an image tag, for a rich:video embed type we render the iFrame inline.
@@ -57,7 +67,6 @@ class Card extends Component {
     };
 
     render() {
-        console.log(this.props);
         const { thread } = this.props;
 
         // Certain thumbnail paths from the Reddit API's indicate a content type and not
@@ -112,17 +121,9 @@ class Card extends Component {
 
                         <div className="card-action">
                             <div className="action-list">
-                                {thread.data.post_hint === ('image' || 'rich:video') &&
-                                    <span>
-                                        {this.renderExpandControls()}
-                                    </span>
-                                }
-
-                                {thread.data.post_hint !== ('image' || 'rich:video') &&
-                                    <a className="waves-effect waves-light" href={thread.data.url} target="_blank">
-                                        <i className="material-icons right">visibility</i>View
-                                    </a>
-                                }
+                                <span>
+                                    {this.renderExpandControls()}
+                                </span>
                             </div>
                         </div>
                     </div>
