@@ -19,14 +19,12 @@ a {
   display: flex;
   flex-grow: 1;
   flex-wrap: wrap; }
-.card .card-image a {
-  cursor: pointer; }
 .card .card-meta {
   color: #000;
   font-weight: 300; }
 .card .card-author {
   color: #ef8361; }
-.card .card-title-text {
+.card .card-title-text a {
   color: #000;
   font-size: 16px;
   font-weight: 400; }
