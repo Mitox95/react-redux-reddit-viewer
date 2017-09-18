@@ -25,7 +25,8 @@ class Search extends Component {
         // Here we determine if the user is browsing this within the 
         // viewer or on the homepage.
         let location = this.props.location;
-        if (this.props.params.filter && !location.query) {
+
+        if (this.props.params.filter && !location.query.sort && !location.query.t) {
             this.context.router.push(`/r/${this.state.term}/${this.props.params.filter}`);
         } else if (location.query.sort && location.query.t) {
             this.context.router.push(`/r/${this.state.term}/${this.props.params.filter}/?sort=${location.query.sort}&t=${location.query.t}`)
