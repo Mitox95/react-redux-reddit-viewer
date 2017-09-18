@@ -92,7 +92,7 @@ class Card extends Component {
                     <div className="card-stacked">
                         <div className="card-content">
                             <span className="card-title-text">
-                                <a href={`http://reddit.com${thread.data.permalink}`}>
+                                <a href={`http://reddit.com${thread.data.permalink}`} target="_blank" rel="noopener">
                                     {thread.data.title}
                                 </a>
                             </span>
@@ -100,7 +100,8 @@ class Card extends Component {
                             <div className="card-meta">
                                 Posted by <a className="card-author" 
                                     href={`https://www.reddit.com/user/${thread.data.author}`} 
-                                    target="_blank">
+                                    target="_blank"
+                                    rel="noopener">
                                     {thread.data.author}
                                 </a> <Timestamp time={thread.data.created_utc} />
                             </div>
