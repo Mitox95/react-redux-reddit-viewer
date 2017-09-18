@@ -17,7 +17,7 @@ class Card extends Component {
     // renders a view button to view the threads permalink.
     renderExpandControls() {
         const { thread } = this.props;
-        if (thread.data.post_hint === 'image' || thread.data.post_hint == 'rich:video') {
+        if (thread.data.post_hint === 'image' || thread.data.post_hint === 'rich:video') {
             if (this.state.expanded) {
                 return (
                     <a className="waves-effect waves-light" onClick={this.handleExpand}>
