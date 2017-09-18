@@ -63,13 +63,13 @@ class Card extends Component {
         // an image. For these we re-assign their values to some placeholders so they
         // can be rendered in an image tag.
         if (thread.data.thumbnail == 'self') {
-            thread.data.thumbnail = '/assets/placeholder_self.png'
+            thread.data.thumbnail = './assets/placeholder_self.png'
         } else if (thread.data.thumbnail == 'nsfw') {
-            thread.data.thumbnail = '/assets/placeholder_nsfw.png'
+            thread.data.thumbnail = './assets/placeholder_nsfw.png'
         } else if (thread.data.thumbnail == 'spoiler') {
-            thread.data.thumbnail = '/assets/placeholder_spoiler.png'
+            thread.data.thumbnail = './assets/placeholder_spoiler.png'
         } else if (thread.data.thumbnail == '' || thread.data.thumbnail == 'default') {
-            thread.data.thumbnail = '/assets/placeholder.png'
+            thread.data.thumbnail = './assets/placeholder.png'
         }
 
         return (
