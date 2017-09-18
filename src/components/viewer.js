@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchList } from '../actions/index';
 
@@ -16,10 +17,6 @@ class Viewer extends Component {
     this.fetchContent = this.fetchContent.bind(this);
   }
 
-  static contextTypes = {
-    router: PropTypes.object
-  };
-
   // Before the component mounts if the use hasn't selected a filter
   // we automatically re-direct them to the default, 'hot'.
 
@@ -29,7 +26,7 @@ class Viewer extends Component {
   componentWillMount() {
     if (!this.props.params.filter) {
       this.context.router.push(`/r/${this.props.params.sub}/hot`);
-    } else if (this.props.params.filter && this.props.location.search != '') {
+    } else if (this.props.params.filter && this.props.location.search !== '') {
       this.context.router.push(`/r/${this.props.params.sub}/${this.props.params.filter}/`);
     }
   }
@@ -47,9 +44,9 @@ class Viewer extends Component {
   // Make sure that when the route props update that we're not updating content
   // for no reason. Here we check between three criteras.
   componentWillReceiveProps(nextProps) {
-    if (nextProps.params.filter != this.props.params.filter || 
-      nextProps.params.sub != this.props.params.sub ||
-      nextProps.location.search != this.props.location.search) {
+    if (nextProps.params.filter !== this.props.params.filter || 
+      nextProps.params.sub !== this.props.params.sub ||
+      nextProps.location.search !== this.props.location.search) {
 
       this.fetchContent(nextProps.params.sub, 
         nextProps.params.filter, nextProps.location.search);
@@ -84,5 +81,9 @@ function mapStateToProps(state) {
       toast: state.threads.toast
     };
 }
+
+Viewer.contextTypes = {
+  router: PropTypes.object
+};
 
 export default connect(mapStateToProps, { fetchList })(Viewer);

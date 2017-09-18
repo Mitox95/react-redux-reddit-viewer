@@ -1,8 +1,19 @@
+# dependencies
 /node_modules
-npm-debug.log
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
 .DS_Store
-/style/.sass-cache
-/style/style.css.map
-# IntelliJ
-*.iml
-/.idea
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

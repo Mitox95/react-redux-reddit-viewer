@@ -1,5 +1,4 @@
-import React, { Component, PropTypes } from 'react';
-import { Link } from 'react-router';
+import React, { Component } from 'react';
 
 import Card from './card'
 import Pagination from './pagination';
@@ -23,7 +22,7 @@ class ThreadList extends Component {
             let lastItem = nextProps.threads.slice(-1).pop().data.id;
             let firstItem = nextProps.threads[0].data.id;
 
-            if (this.state.firstItem != firstItem || this.state.lastItem != lastItem) {
+            if (this.state.firstItem !== firstItem || this.state.lastItem !== lastItem) {
                 this.setState({
                     firstItem,
                     lastItem

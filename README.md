@@ -7,7 +7,12 @@ This is a Single Page Application built with [React](https://facebook.github.io/
 This application can be installed via npm by running `npm install`. Once installed you're able to launch the application in a local server by running `npm start`.
 
 ### Navigating
-Once initialized the application can be accesed via port `8080` on `localhost`. The application is driven primarily by react-router, allowing you to access routes to get directly to the content you want. For example `http://localhost:8080/#/r/wow/hot?_k=5j0xwu` or `http://localhost:8080/#/r/teslamotors/new/?_k=l90l7q`.
+Once initialized the application can be accesed via port `3000` on `localhost`. The application is driven primarily by react-router, allowing you to access routes to get directly to the content you want. For example `http://localhost:8080/#/r/wow/hot?_k=5j0xwu` or `http://localhost:8080/#/r/teslamotors/new/?_k=l90l7q`.
+
+### Building and Testing
+This application can be built using `npm run build` which will create a production-ready instance inside the `/build` directory.
+
+At this time there are a small number of tests which can be found within `/src/tests`. You can run the test suite via `npm run test`. 
 
 
 ## browserHistory vs hashHistory
