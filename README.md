@@ -24,4 +24,4 @@ If you'd like to deploy your own version of this application you can change the 
 ## Issues, Feedback and Feature Requests
 Please post any issues, feedback, or feature requests [here](https://github.com/JamesIves/react-redux-reddit-viewer/issues).
 
-![Example](assets/application_example.gif)
+![Example](public/assets/application_example.gif)
