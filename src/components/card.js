@@ -86,7 +86,12 @@ class Card extends Component {
                             </span>
 
                             <div className="card-meta">
-                                Posted by {thread.data.author} <Timestamp time={thread.data.created_utc} />
+                                Posted by <a className="card-author" 
+                                    href={`https://www.reddit.com/user/${thread.data.author}`} 
+                                    target="_blank">
+                                    {thread.data.author}
+                                </a> 
+                                <Timestamp time={thread.data.created_utc} />
                             </div>
 
                             <div className="chip-list">

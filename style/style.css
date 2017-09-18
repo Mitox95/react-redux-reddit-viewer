@@ -12,13 +12,16 @@ a {
   transition: all .6s ease 0s; }
   a:hover {
     opacity: .6;
-    color: #b1afaf; }
+    color: #b1afaf;
+    cursor: pointer; }
 
 .card .card-image a {
   cursor: pointer; }
 .card .card-meta {
   color: #000;
   font-weight: 300; }
+.card .card-author {
+  color: #ef8361; }
 .card .card-title-text {
   color: #000;
   font-size: 16px;

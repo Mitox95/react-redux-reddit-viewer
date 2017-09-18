@@ -90,7 +90,7 @@
 	_reactDom2.default.render(_react2.default.createElement(
 	  _reactRedux.Provider,
 	  { store: createStoreWithMiddleware(_reducers2.default) },
-	  _react2.default.createElement(_reactRouter.Router, { history: _reactRouter.browserHistory, routes: _routes2.default })
+	  _react2.default.createElement(_reactRouter.Router, { history: _reactRouter.hashHistory, routes: _routes2.default })
 	), document.querySelector('.wrapper'));
 
 /***/ }),
@@ -28008,7 +28008,8 @@
 	            // Here we determine if the user is browsing this within the 
 	            // viewer or on the homepage.
 	            var location = this.props.location;
-	            if (this.props.params.filter && !location.query) {
+
+	            if (this.props.params.filter && !location.query.sort && !location.query.t) {
 	                this.context.router.push('/r/' + this.state.term + '/' + this.props.params.filter);
 	            } else if (location.query.sort && location.query.t) {
 	                this.context.router.push('/r/' + this.state.term + '/' + this.props.params.filter + '/?sort=' + location.query.sort + '&t=' + location.query.t);
@@ -30655,8 +30656,13 @@
 	                                'div',
 	                                { className: 'card-meta' },
 	                                'Posted by ',
-	                                thread.data.author,
-	                                ' ',
+	                                _react2.default.createElement(
+	                                    'a',
+	                                    { className: 'card-author',
+	                                        href: 'https://www.reddit.com/user/' + thread.data.author,
+	                                        target: '_blank' },
+	                                    thread.data.author
+	                                ),
 	                                _react2.default.createElement(_reactTimestamp2.default, { time: thread.data.created_utc })
 	                            ),
 	                            _react2.default.createElement(

@@ -16,6 +16,7 @@ a {
   &:hover {
     opacity: .6;
     color: #b1afaf;
+    cursor: pointer;
   }
 }
 
@@ -27,6 +28,10 @@ a {
   .card-meta {
     color: #000;
     font-weight: 300;
+  }
+
+  .card-author {
+    color: #ef8361;
   }
 
   .card-title-text {
