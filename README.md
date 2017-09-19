@@ -10,7 +10,7 @@ This is a Single Page Application built with [React](https://facebook.github.io/
 This application can be installed via npm by running `npm install`. Once installed you're able to launch the application in a local server by running `npm start`.
 
 
-### Navigating
+## Navigating
 Once initialized the application can be accesed via port `3000` on `localhost`. The application is driven primarily by routes, allowing you to get directly to the content you want. For example `http://localhost:8080/#/r/wow/hot?_k=5j0xwu` or `http://localhost:8080/#/r/teslamotors/new/?_k=l90l7q`.
 
 
