@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Card from './card'
+import Card from './card';
 import Pagination from './pagination';
 
 /* ThreadList expects an Array of data in a JSON format

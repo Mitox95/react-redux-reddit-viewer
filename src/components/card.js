@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Timestamp from 'react-timestamp'
+import Timestamp from 'react-timestamp';
 
 /* The Card component expects a JSON object representing
     a Reddit thread and renders it in a MUI 'card' */

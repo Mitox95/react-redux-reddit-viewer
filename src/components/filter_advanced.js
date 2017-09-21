@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Input } from 'react-materialize'
+import { Input } from 'react-materialize';
 
 /* The AdvancedFilter components lets you sort existing filters,
     such as 'top', by pre-defined date ranges. */
